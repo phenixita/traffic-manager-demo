@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TrafficManager.Models;
+using RegionAwareApp.Models;
 
-namespace TrafficManager.Controllers
+namespace RegionAwareApp.Controllers
 {
     public class HomeController : Controller
     {
