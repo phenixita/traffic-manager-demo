@@ -1,9 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <h2 class="display-3">This instance is running in:</h2>
-    <h2 class="display-3">@(Environment.GetEnvironmentVariable("REGION_NAME") ?? "Local")</h2>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <h2 class="display-3">This instance is running in:</h2>
+        <h2 class="display-3">@(Environment.GetEnvironmentVariable("REGION_NAME") ?? "Local")</h2>
+        <h2 class="display-3">@(Environment.MachineName ?? "No machine name ")</h2>
+        
+        <p>Hits count: @(RegionAwareApp.Controllers.HomeController.IndextHits)</p>
+        
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>

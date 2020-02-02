@@ -13,6 +13,8 @@ namespace RegionAwareApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        public static uint IndextHits { get; set; }
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -20,6 +22,7 @@ namespace RegionAwareApp.Controllers
 
         public IActionResult Index()
         {
+            IndextHits++;
             return View();
         }
 
