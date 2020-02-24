@@ -25,7 +25,7 @@ jobs:
           - task: AzureWebAppContainer@1
             inputs:
               azureSubscription: 'PFE 500 (fd94b044-d980-40d3-bd9c-0417736c7b36)'
-              appName: 'instancename-mirror'
+              appName: 'regionaware-mirror'
               containers: 'phenixita/regionawareapp'
       routeTraffic:
         steps:
