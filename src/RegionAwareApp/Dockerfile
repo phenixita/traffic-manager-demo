@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["traffic-manager-demo/src/RegionAwareApp/RegionAwareApp.csproj", "traffic-manager-demo/src/RegionAwareApp/"]
-RUN dotnet restore "traffic-manager-demo/src/RegionAwareApp/RegionAwareApp.csproj"
+COPY ["RegionAwareApp.csproj", ""]
+RUN dotnet restore "./RegionAwareApp.csproj"
 COPY . .
-WORKDIR "/src/traffic-manager-demo/src/RegionAwareApp"
+WORKDIR "/src/."
 RUN dotnet build "RegionAwareApp.csproj" -c Release -o /app/build
 
 FROM build AS publish
