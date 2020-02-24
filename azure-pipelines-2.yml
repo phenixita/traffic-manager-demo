@@ -25,5 +25,5 @@ stages:
       inputs:
         command: 'build'
         Dockerfile: 'src/RegionAwareApp/Dockerfile'
-        buildContext: '/'
+        buildContext: '$(Build.SourcesDirectory)'
         tags: '$(tag)'
