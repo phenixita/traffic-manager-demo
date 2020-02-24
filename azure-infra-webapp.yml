@@ -25,7 +25,7 @@ jobs:
             deploymentName: 'deployment-azdo-$(build.buildnumber)'
         - task: AzureCLI@2
           inputs:
-            azureSubscription: 'PFE 500'
+            azureSubscription: 'azMiferracMirror'
             scriptType: 'ps'
             scriptLocation: 'inlineScript'
             inlineScript: 'az group deployment create --resource-group miferrac-mirror --template-file infra\azure\webapp\template.json --parameters @infra\azure\webapp\parameters.json'
