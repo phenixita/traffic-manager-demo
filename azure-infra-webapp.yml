@@ -17,8 +17,8 @@ jobs:
             resourceGroupName: 'miferrac-mirror'
             location: 'West Europe'
             templateLocation: 'Linked artifact'
-            csmFile: '$(System.DefaultWorkingDirectory)/_phenixita_traffic-manager-demo/infra/azure/webapp/template.json'
-            csmParametersFile: '$(System.DefaultWorkingDirectory)/_phenixita_traffic-manager-demo/infra/azure/webapp/parameters.json'
+            csmFile: 'infra/azure/webapp/template.json'
+            csmParametersFile: 'infra/azure/webapp/parameters.json'
             deploymentMode: 'Incremental'
       deploy:
         steps:
