@@ -1,19 +1,22 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+jobs:
+- deployment: DeployInfra
+  displayName: Deploy Azure Infra
+  pool:
+    vmImage: 'Ubuntu-16.04'
+  environment: 'mirror'
+  strategy: 
+    runOnce:
+      deploy:
+        steps:
+        - checkout: self
+        - task: AzureResourceManagerTemplateDeployment@3
+          inputs:
+            deploymentScope: 'Resource Group'
+            azureResourceManagerConnection: 'PFE 500 (fd94b044-d980-40d3-bd9c-0417736c7b36)'
+            subscriptionId: 'fd94b044-d980-40d3-bd9c-0417736c7b36'
+            action: 'Create Or Update Resource Group'
+            resourceGroupName: 'nd-mirroring'
+            location: 'West Europe'
+            templateLocation: 'Linked artifact'
+            deploymentMode: 'Incremental'
+ 
