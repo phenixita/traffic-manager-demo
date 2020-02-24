@@ -18,5 +18,7 @@ jobs:
             resourceGroupName: 'nd-mirroring'
             location: 'West Europe'
             templateLocation: 'Linked artifact'
+            csmFile: 'infra/azure/webapp/template.json'
+            csmParametersFile: 'infra/azure/webapp/parameters.json'
             deploymentMode: 'Incremental'
  
