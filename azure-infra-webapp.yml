@@ -6,7 +6,7 @@ jobs:
   environment: 'mirror'
   strategy: 
     runOnce:
-      deploy:
+      preDeploy:
         steps:
         - checkout: self
         - task: AzureResourceManagerTemplateDeployment@3
@@ -23,3 +23,19 @@ jobs:
             csmParametersFile: 'infra/azure/webapp/parameters.json'
             deploymentMode: 'Incremental'
             deploymentName: 'deployment-azdo-$(build.buildnumber)'
+      deploy:
+        steps:
+          - script: 'echo deploy steps'
+      routeTraffic:
+        steps:
+          - script: 'echo routeTraffic steps'
+      postRouteTraffic:
+        steps:
+          - script: 'echo postRouteTraffic steps'
+      on:
+        failure:
+          steps:
+          - script: 'echo on failure steps'
+        success:
+          steps:
+          - script: 'echo on success steps'
