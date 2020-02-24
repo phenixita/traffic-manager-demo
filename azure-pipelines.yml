@@ -1,8 +1,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
+# specific path build
 trigger:
-- master
-
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - src/*
 resources:
 - repo: self
 
