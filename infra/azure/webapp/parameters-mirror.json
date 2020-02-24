@@ -6,7 +6,7 @@
             "value": "fd94b044-d980-40d3-bd9c-0417736c7b36"
         },
         "name": {
-            "value": "regionaware-prod"
+            "value": "regionaware-mirror"
         },
         "location": {
             "value": "West Europe"
@@ -15,7 +15,7 @@
             "value": ""
         },
         "hostingPlanName": {
-            "value": "ASP-miferracmirror-prod"
+            "value": "ASP-miferracmirror-mirror"
         },
         "serverFarmResourceGroup": {
             "value": "miferrac-mirror"
