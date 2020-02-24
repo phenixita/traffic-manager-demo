@@ -2,7 +2,7 @@ jobs:
 - deployment: DeployInfra
   displayName: Deploy Azure Infra
   pool:
-    vmImage: 'Ubuntu-16.04'
+    vmImage: 'windows-latest'
   environment: 'mirror'
   strategy: 
     runOnce:
@@ -10,15 +10,22 @@ jobs:
         steps:
         - checkout: self
         - task: AzureResourceManagerTemplateDeployment@3
+          enabled: false
           inputs:
             deploymentScope: 'Resource Group'
-            azureResourceManagerConnection: 'PFE 500 (fd94b044-d980-40d3-bd9c-0417736c7b36)'
+            azureResourceManagerConnection: 'PFE 500'
             subscriptionId: 'fd94b044-d980-40d3-bd9c-0417736c7b36'
             action: 'Create Or Update Resource Group'
-            resourceGroupName: 'nd-mirroring'
+            resourceGroupName: 'miferrac-mirror'
             location: 'West Europe'
             templateLocation: 'Linked artifact'
             csmFile: 'infra/azure/webapp/template.json'
             csmParametersFile: 'infra/azure/webapp/parameters.json'
             deploymentMode: 'Incremental'
- 
+            deploymentName: 'deployment-azdo-$(build.buildnumber)'
+        - task: AzureCLI@2
+          inputs:
+            azureSubscription: 'azMiferracMirror'
+            scriptType: 'ps'
+            scriptLocation: 'inlineScript'
+            inlineScript: 'az group deployment create --resource-group miferrac-mirror --template-file infra\azure\webapp\template.json --parameters @infra\azure\webapp\parameters.json'
