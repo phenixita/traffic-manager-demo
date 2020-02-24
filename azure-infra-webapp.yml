@@ -10,6 +10,7 @@ jobs:
         steps:
         - checkout: self
         - task: AzureResourceManagerTemplateDeployment@3
+          enabled: false
           inputs:
             deploymentScope: 'Resource Group'
             azureResourceManagerConnection: 'PFE 500'
@@ -22,3 +23,9 @@ jobs:
             csmParametersFile: 'infra/azure/webapp/parameters.json'
             deploymentMode: 'Incremental'
             deploymentName: 'deployment-azdo-$(build.buildnumber)'
+        - task: AzureCLI@2
+          inputs:
+            azureSubscription: 'PFE 500'
+            scriptType: 'ps'
+            scriptLocation: 'inlineScript'
+            inlineScript: 'az group deployment create --resource-group miferrac-mirror --template-file infra\azure\webapp\template.json --parameters @infra\azure\webapp\parameters.json'
