@@ -2,7 +2,7 @@ jobs:
 - deployment: DeployInfra
   displayName: Deploy Azure Infra
   pool:
-    vmImage: 'Ubuntu-16.04'
+    vmImage: 'windows-latest'
   environment: 'mirror'
   strategy: 
     runOnce:
