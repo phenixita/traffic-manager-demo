@@ -15,10 +15,9 @@ jobs:
             azureResourceManagerConnection: 'PFE 500 (fd94b044-d980-40d3-bd9c-0417736c7b36)'
             subscriptionId: 'fd94b044-d980-40d3-bd9c-0417736c7b36'
             action: 'Create Or Update Resource Group'
-            resourceGroupName: 'nd-mirroring'
+            resourceGroupName: 'miferrac-mirror'
             location: 'West Europe'
             templateLocation: 'Linked artifact'
             csmFile: 'infra/azure/webapp/template.json'
             csmParametersFile: 'infra/azure/webapp/parameters.json'
             deploymentMode: 'Incremental'
- 
