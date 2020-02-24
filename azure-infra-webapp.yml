@@ -9,20 +9,14 @@ jobs:
       preDeploy:
         steps:
         - checkout: self
-        - task: AzureResourceManagerTemplateDeployment@3
-          enabled: true
+        - task: AzureResourceGroupDeployment@2
+          displayName: 'Azure Deployment:Create Or Update Resource Group action on miferrac-mirror'
           inputs:
-            deploymentScope: 'Resource Group'
-            azureResourceManagerConnection: 'vse miferrac'
-            subscriptionId: 'dce4a55c-1d65-46ec-bd2b-831801fc6bab'
-            action: 'Create Or Update Resource Group'
+            azureSubscription: azMiferracMirror
             resourceGroupName: 'miferrac-mirror'
             location: 'West Europe'
-            templateLocation: 'Linked artifact'
-            csmFile: 'infra/azure/webapp/template.json'
-            csmParametersFile: 'infra/azure/webapp/parameters.json'
-            deploymentMode: 'Incremental'
-            deploymentName: 'deployment-azdo-$(build.buildnumber)'
+            csmFile: '$(System.DefaultWorkingDirectory)/_phenixita_traffic-manager-demo/infra/azure/webapp/template.json'
+            csmParametersFile: '$(System.DefaultWorkingDirectory)/_phenixita_traffic-manager-demo/infra/azure/webapp/parameters.json'
       deploy:
         steps:
           - script: 'echo deploy steps'
