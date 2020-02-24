@@ -6,19 +6,19 @@
             "value": "fd94b044-d980-40d3-bd9c-0417736c7b36"
         },
         "name": {
-            "value": "ndregionaware"
+            "value": "instancename"
         },
         "location": {
-            "value": "West US"
+            "value": "West Europe"
         },
         "hostingEnvironment": {
             "value": ""
         },
         "hostingPlanName": {
-            "value": "ASP-learnmirroring-9b63"
+            "value": "ASP-miferracmirror-bd40"
         },
         "serverFarmResourceGroup": {
-            "value": "learn-mirroring"
+            "value": "miferrac-mirror"
         },
         "alwaysOn": {
             "value": false
