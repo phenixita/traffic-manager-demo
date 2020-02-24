@@ -12,7 +12,7 @@ jobs:
         - task: AzureResourceManagerTemplateDeployment@3
           inputs:
             deploymentScope: 'Resource Group'
-            azureResourceManagerConnection: 'PFE 500 (fd94b044-d980-40d3-bd9c-0417736c7b36)'
+            azureResourceManagerConnection: 'PFE 500'
             subscriptionId: 'fd94b044-d980-40d3-bd9c-0417736c7b36'
             action: 'Create Or Update Resource Group'
             resourceGroupName: 'miferrac-mirror'
@@ -21,3 +21,4 @@ jobs:
             csmFile: 'infra/azure/webapp/template.json'
             csmParametersFile: 'infra/azure/webapp/parameters.json'
             deploymentMode: 'Incremental'
+            deploymentName: 'deployment-azdo-$(build.buildnumber)'
