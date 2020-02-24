@@ -12,11 +12,14 @@ jobs:
         - task: AzureResourceGroupDeployment@2
           displayName: 'Azure Deployment:Create Or Update Resource Group action on miferrac-mirror'
           inputs:
-            azureSubscription: azMiferracMirror
+            azureSubscription: 'PFE 500 (fd94b044-d980-40d3-bd9c-0417736c7b36)'
+            action: 'Create Or Update Resource Group'
             resourceGroupName: 'miferrac-mirror'
             location: 'West Europe'
+            templateLocation: 'Linked artifact'
             csmFile: '$(System.DefaultWorkingDirectory)/_phenixita_traffic-manager-demo/infra/azure/webapp/template.json'
             csmParametersFile: '$(System.DefaultWorkingDirectory)/_phenixita_traffic-manager-demo/infra/azure/webapp/parameters.json'
+            deploymentMode: 'Incremental'
       deploy:
         steps:
           - script: 'echo deploy steps'
