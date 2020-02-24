@@ -48,7 +48,7 @@
             "value": ""
         },
         "dockerRegistryPassword": {
-            "value": null
+            "value": ""
         },
         "dockerRegistryStartupCommand": {
             "value": ""
