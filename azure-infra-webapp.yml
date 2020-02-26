@@ -10,7 +10,7 @@ jobs:
         steps:
         - checkout: self
         - task: AzureResourceGroupDeployment@2
-          displayName: 'Azure Deployment on miferrac-mirror'
+          displayName: 'Deployment of Azure resources'
           inputs:
             azureSubscription: 'PFE 500 (fd94b044-d980-40d3-bd9c-0417736c7b36)'
             action: 'Create Or Update Resource Group'
@@ -23,6 +23,7 @@ jobs:
       deploy:
         steps:
           - task: AzureWebAppContainer@1
+            displayName: 'Deployment of Region Aware App (WebApp)'
             inputs:
               azureSubscription: 'PFE 500 (fd94b044-d980-40d3-bd9c-0417736c7b36)'
               appName: 'regionaware-mirror'
